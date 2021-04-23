@@ -19,8 +19,8 @@ try {
       break;
     } elseif ($request.Url.LocalPath -eq "/api/v1/execute") {
       $queryStringParsed = [System.Web.HttpUtility]::ParseQueryString($request.Url.Query)
-      $highByte = [int]($queryStringParsed["highByte"])
-      $lowByte = [int]($queryStringParsed["lowByte"])
+      $highByte = [int]($queryStringParsed["operand2"])
+      $lowByte = [int]($queryStringParsed["operand1"])
       $address = ($highByte -shl 8) -bor $lowByte
   
       $sr = New-Object System.IO.StreamReader($request.InputStream, $request.ContentEncoding)
