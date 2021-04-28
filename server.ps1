@@ -56,8 +56,6 @@ try {
         }
       }
 
-      echo $doJump
-
       if ($doJump) {
         $cpu.state.programCounter = $address
       }
