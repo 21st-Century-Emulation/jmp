@@ -28,7 +28,7 @@ try {
       $sr.Close()
       $request.InputStream.Close()
 
-      $doJump = true
+      $doJump = $true
       switch ([int]$cpu.opcode) {
         0xC2 { # JNZ
           $doJump = -not $cpu.state.flags.zero
@@ -55,6 +55,8 @@ try {
           $doJump = $cpu.state.flags.sign
         }
       }
+
+      echo $doJump
 
       if ($doJump) {
         $cpu.state.programCounter = $address
